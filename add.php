@@ -1,22 +1,15 @@
 <?php 
 
-require_once 'app/init.php';
+// database connection 
+include 'app/init.php';
 
-if (isset($_POST['name'])){
-    $name= trim($_POST['name']);
+// query to post to database to add items
+// var_dump($_POST);
+// // echo $_POST;
+$res= pg_insert( $dbconn, 'items', $_POST ) 
+ or die('Query failed: ' . pg_last_error());
 
-    if(!empty($name)){
-        $addedQuery = $db->prepare("
-            INSERT INTO items (name, done, created)
-            VALUES (:name, 0, NOW())
-        ");
-        
-        $addedQuery->execute([
-            'name' => $name
-        ]);
-    }
-}
 
-header ('');
 
-?>
+header('Location: index.php');
+

@@ -1,7 +1,7 @@
 CREATE TABLE "items" (
     "id" SERIAL PRIMARY KEY,
     "name" varchar(255) NOT NULL,
-	"done" BOOLEAN NOT NULL,
+	"done" BOOLEAN NOT NULL DEAFAULT FALSE,
 	"created" DATE NOT NULL DEFAULT CURRENT_DATE
 );
 

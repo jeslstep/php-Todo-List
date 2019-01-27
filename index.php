@@ -46,7 +46,9 @@ while ($values = pg_fetch_array($result)){
             <?php foreach ($resultRows as $item) : ?>
                 <li>
                     <span class="item"> <?php  echo $item['name']; ?></span>
-                    <a href="#" class="done-button">Mark as done</a>
+                        <?php if ($item['done']): ?>
+                            <a href="mark.php?as=done&itmem=<?php echo $itme['id']; ?>" class="done-button">Mark as done</a>
+                        <?php endif; ?>
                 </li>
             <?php endforeach; ?>
             <!-- else, do this -->
