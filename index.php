@@ -4,25 +4,20 @@
 // database connection 
 include 'app/init.php';
 
-// query to database to get rows from items table
-$query = 'SELECT name FROM items;';
+// query to database to get items from items table
+$query = 'SELECT id,name,done FROM items;';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 
+// store database values for display
 $queryResults = array();
-echo $queryResults;
-// Printing results in HTML
-echo "<table>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo $col_value;
-        array_push($queryResults, "$col_value");
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
-}
-echo "</table>\n";
+
+$resultRows = array();
+
+while ($values = pg_fetch_array($result)){
+    array_push($queryResults, $values['name']);
+    array_push($resultRows, $values);
+};
 
 ?>
 
@@ -44,16 +39,20 @@ echo "</table>\n";
     <body>
         <div class="list">
             <h1 class="header">To Do</h1>
-  
             <ul>
-                
-            <?php foreach ($queryResults as $item) : ?>
+            <!-- if there are items, do this -->
+            <?php if (!empty($resultRows)): ?>
+            <!-- loop through stored items in database  -->
+            <?php foreach ($resultRows as $item) : ?>
                 <li>
-                    <span class="item"> <?php  echo $item; ?></span>
+                    <span class="item"> <?php  echo $item['name']; ?></span>
                     <a href="#" class="done-button">Mark as done</a>
                 </li>
             <?php endforeach; ?>
-  
+            <!-- else, do this -->
+            <?php else : ?>
+                <p>No items added</p>
+            <?php endif; ?>
                 <li>
                     <span class="item done">Learn php</span>
                 </li>
