@@ -45,19 +45,23 @@ while ($values = pg_fetch_array($result)){
             <!-- loop through stored items in database  -->
             <?php foreach ($resultRows as $item) : ?>
                 <li>
+                    <?php if ($item['done'] == f ): ?>
                     <span class="item"> <?php  echo $item['name']; ?></span>
-                        <?php if ($item['done']): ?>
-                            <a href="mark.php?as=done&itmem=<?php echo $itme['id']; ?>" class="done-button">Mark as done</a>
+                        <?php if ($item['done'] == f ): ?>
+                            <a href="mark.php?as=done&item=<?php echo $item['id'] ?>" class="done-button">Mark as done</a> 
                         <?php endif; ?>
+              
+   
+                            <!-- else, do this -->
+                    <?php else : ?>
+                         <span class="item done"> <?php  echo $item['name']; ?></span>
+                    <?php endif; ?>
                 </li>
             <?php endforeach; ?>
             <!-- else, do this -->
             <?php else : ?>
                 <p>No items added</p>
             <?php endif; ?>
-                <li>
-                    <span class="item done">Learn php</span>
-                </li>
             </ul>
                 
             <form class="item-add" action="add.php" method="post">
