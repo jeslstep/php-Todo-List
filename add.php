@@ -10,6 +10,6 @@ $res= pg_insert( $dbconn, 'items', $_POST )
  or die('Query failed: ' . pg_last_error());
 
 
-
+// route back to index.php
 header('Location: index.php');
 
