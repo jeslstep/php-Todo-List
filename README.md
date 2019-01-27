@@ -36,6 +36,10 @@ Install Postico (optional):
 3. Unzip and move to your Applications folder
 4. Open (double-click Postico icon)
 
+Create database and table:
+1. copy contents of database.sql file
+2. paste them into the SQL Query field and Execute Statment
+
 ## Steps to Get the Development Environment Running
 
 1. Download this project.
