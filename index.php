@@ -54,7 +54,8 @@ while ($values = pg_fetch_array($result)){
    
                             <!-- else, do this -->
                     <?php else : ?>
-                         <span class="item done"> <?php  echo $item['name']; ?></span>
+                        <a href="delete.php?as=done&item=<?php echo $item['id'] ?>" class="done-button">DELETE</a> 
+                        <span class="item done"> <?php  echo $item['name']; ?></span>
                     <?php endif; ?>
                 </li>
             <?php endforeach; ?>
