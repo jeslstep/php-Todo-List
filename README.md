@@ -35,6 +35,17 @@ Install Postico (optional):
 2. Download
 3. Unzip and move to your Applications folder
 4. Open (double-click Postico icon)
+5. Create New Favorite
+6. Click New Favorite
+7. Fill in this form as follows:
+8. Nickname: Localhost 
+9. Host: localhost
+10. Port: 5432, the default
+11. User: user account name that installed Postgres. The default should be good.
+12. Find your username in your terminal: Add Connection
+13. Password: If you followed the above installation of Postgres, this can be left blank
+14. Database By default, Postgres creates a database called whatever your username is.
+
 
 Create database and table:
 1. copy contents of database.sql file
