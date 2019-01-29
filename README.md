@@ -1,6 +1,6 @@
 # PHP-Todo-List
 
-User can add to do items, mark as done, and delete them.
+User can add items to do, mark them as done, and delete them.
 
 
 # Website
@@ -14,13 +14,27 @@ Not deployed
 * PostgreSQL
 * CSS
 
+* Heroku deployment:
+1. Composer (package manger) (will help me deploy to heroku)
+https://getcomposer.org/download/ 
+How to install:
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+mv composer.phar /usr/local/bin/composer
+composer -V
+2. composer init
+http://weaintplastic.github.io/web-development-field-guide/Development/Frontend_Development/Setting_up_your_project/Setup_Dependency_Managers/Composer/Initialize_Composer_on_a_new_Project.html
+
+3. To generate your composer.lock file, make sure you have Composer installed and then type: `composer update`
 
 # Setup
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Prerequisites
-
+*Postgres
 Install the software needed to run Postgres:
 Install Homebrew: package manager for macOS or Linux
 1. Go to: https://brew.sh/
@@ -30,7 +44,7 @@ Install and start Postgres:
 1. open terminal and run `brew install postgres`
 2. run `brew services start postgresql`
 
-Install Postico (optional):
+Install Postico:
 1. Go to: https://eggerapps.at/postico/
 2. Download
 3. Unzip and move to your Applications folder

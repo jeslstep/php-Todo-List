@@ -1,0 +1,19 @@
+{
+    "name": "jessicastephens/php-todo-list",
+    "authors": [
+        {
+            "name": "Jessica Stephens",
+            "email": "jeslstep1@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/php-timer": "^2.0",
+        "silex/silex": "^2.0.4",
+        "monolog/monolog": "^1.22",
+        "twig/twig": "^2.0",
+        "symfony/twig-bridge": "^3"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    }
+}
