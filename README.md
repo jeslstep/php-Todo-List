@@ -5,6 +5,8 @@ User can add items to do, mark them as done, and delete them.
 
 # Website
 
+this link can take up to 30 seconds to load since I am using a free dyno on heroku for hosting:
+
 https://damp-river-35376.herokuapp.com/index.php
 
 # Built With
